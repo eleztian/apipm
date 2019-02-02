@@ -24,11 +24,11 @@ func main() {
 	// Create nirvana command.
 	cmd := config.NewNamedNirvanaCommand("server", config.NewDefaultOption())
 
-	// Create plugin options.
-	metricsOption := metrics.NewDefaultOption() // Metrics plugin.
-	loggerOption := logger.NewDefaultOption()   // Logger plugin.
-	reqlogOption := reqlog.NewDefaultOption()   // Request log plugin.
-	versionOption := pversion.NewOption(        // Version plugin.
+	// Create plugins options.
+	metricsOption := metrics.NewDefaultOption() // Metrics plugins.
+	loggerOption := logger.NewDefaultOption()   // Logger plugins.
+	reqlogOption := reqlog.NewDefaultOption()   // Request log plugins.
+	versionOption := pversion.NewOption(        // Version plugins.
 		"apipm",
 		version.Version,
 		version.Commit,
@@ -43,7 +43,7 @@ func main() {
 
 	// Configure APIs. These configurations may be changed by plugins.
 	serverConfig.Configure(
-		nirvana.Logger(log.DefaultLogger()), // Will be changed by logger plugin.
+		nirvana.Logger(log.DefaultLogger()), // Will be changed by logger plugins.
 		nirvana.Filter(filters.Filters()...),
 		nirvana.Modifier(modifiers.Modifiers()...),
 		nirvana.Descriptor(apis.DescriptorAPIs(), apis.DescriptorUIs()),

@@ -1,7 +1,7 @@
 package descriptors
 
 import (
-	"github.com/eleztian/apipm/pkg/application/message"
+	"github.com/eleztian/apipm/pkg/app/message"
 
 	def "github.com/caicloud/nirvana/definition"
 )
