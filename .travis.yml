@@ -1,16 +1,19 @@
 language: go
 
 go:
-- "1.10.x"
+  - "1.10.x"
+
+env:
+  - GO111MODULE=on
+
+install: true
 
 before_install:
   - go get github.com/mattn/goveralls
-  - go get -u github.com/alecthomas/gometalinter
-  - gometalinter --install
+  - go test -v -mod=vendor ./...
 
 script:
   - make test
-  - gometalinter --config=config.json ./...
   - GO_COVER_PROFILE=$(mktemp -u)
   - go test ./... -race -covermode atomic -coverprofile $GO_COVER_PROFILE
   - goveralls -service=travis-ci -coverprofile $GO_COVER_PROFILE
