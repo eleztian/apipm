@@ -13,6 +13,4 @@ before_install:
 
 script:
   - make test
-  - GO_COVER_PROFILE=$(mktemp -u)
-  - go test ./... -race -covermode atomic -coverprofile $GO_COVER_PROFILE
-  - goveralls -service=travis-ci -coverprofile $GO_COVER_PROFILE
+  - goveralls -service=travis-ci
