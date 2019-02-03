@@ -88,7 +88,7 @@ push: container
 	done
 
 test:
-	@go test ./...
+	@go test -v -mod=vendor ./...
 
 clean:
 	@rm -vrf ${OUTPUT_DIR}/*

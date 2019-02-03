@@ -10,10 +10,9 @@ install: true
 
 before_install:
   - go get github.com/mattn/goveralls
-  - go test -v -mod=vendor ./...
 
 script:
-  - make test
+  - go test -v -mod=vendor ./...
   - GO_COVER_PROFILE=$(mktemp -u)
   - go test ./... -race -covermode atomic -coverprofile $GO_COVER_PROFILE
   - goveralls -service=travis-ci -coverprofile $GO_COVER_PROFILE
