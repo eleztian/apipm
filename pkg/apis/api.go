@@ -16,7 +16,7 @@ func DescriptorAPIs() def.Descriptor {
 		Description: "APIs",
 		Path:        "/apis",
 		Middlewares: middlewares.Middlewares(),
-		Consumes:    []string{def.MIMEJSON},
+		Consumes:    []string{def.MIMEAll},
 		Produces:    []string{def.MIMEJSON},
 		Children: []def.Descriptor{
 			v1.Descriptor(),
